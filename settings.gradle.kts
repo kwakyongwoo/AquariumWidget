@@ -21,4 +21,13 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "AquariumWidget"
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
+include(":core:common")
+include(":core:datastore-proto")
+include(":core:datastore")
+include(":core:model")
+include(":core:datastore-test")
+include(":core:database")
+include(":core:testing")
