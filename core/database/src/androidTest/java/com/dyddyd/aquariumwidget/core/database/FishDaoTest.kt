@@ -21,7 +21,7 @@ class FishDaoTest {
         db = Room.databaseBuilder(
             context,
             AquariumDatabase::class.java,
-            "aquarium-database-test5"
+            "aquarium-database-test7"
         ).createFromAsset("DB.sqlite3").build()
         fishDao = db.fishDao()
     }
@@ -30,6 +30,14 @@ class FishDaoTest {
     fun fishDao_getAllFish() = runTest {
         val fishList = fishDao.getAllFish().firstOrNull()
 
-        println(fishList)
+        println("fishDao_getAllFish: $fishList")
+    }
+
+    @Test
+    fun fishDao_getAllCollectedFish() = runTest {
+        fishDao.catchFish(1, 1, 1)
+        val fishList = fishDao.getAllCollectFish().firstOrNull()
+
+        println("fishDao_getAllCollectedFish: $fishList")
     }
 }
