@@ -14,10 +14,11 @@ import dagger.hilt.InstallIn
 import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Singleton
 import com.dyddyd.aquariumwidget.core.network.AquariumDispatchers.IO
+import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineScope
 
 @Module
-@InstallIn(Singleton::class)
+@InstallIn(SingletonComponent::class)
 object DataStoreModule {
 
     @Provides
