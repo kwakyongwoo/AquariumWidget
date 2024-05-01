@@ -1,8 +1,6 @@
 package com.dyddyd.aquariumwidget.core.di
 
-import com.dyddyd.aquariumwidget.core.network.AquariumDispatchers
 import com.dyddyd.aquariumwidget.core.network.Dispatcher
-import com.dyddyd.aquariumwidget.core.network.di.DispatchersModule
 import com.dyddyd.aquariumwidget.core.network.AquariumDispatchers.IO
 import com.dyddyd.aquariumwidget.core.network.AquariumDispatchers.Default
 import dagger.Module

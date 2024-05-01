@@ -11,11 +11,13 @@ import com.dyddyd.aquariumwidget.core.network.di.ApplicationScope
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
 import javax.inject.Singleton
 import com.dyddyd.aquariumwidget.core.network.AquariumDispatchers.IO
-import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.CoroutineScope
+import dagger.hilt.android.qualifiers.ApplicationContext
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -24,7 +26,7 @@ object DataStoreModule {
     @Provides
     @Singleton
     internal fun providesUserPreferencesDataStore(
-        @ApplicationScope context: Context,
+        @ApplicationContext context: Context,
         @Dispatcher(IO) ioDispatcher: CoroutineDispatcher,
         @ApplicationScope scope: CoroutineScope,
         userPreferencesSerializer: UserPreferencesSerializer,
@@ -35,4 +37,4 @@ object DataStoreModule {
         ) {
             context.dataStoreFile("user_preferences.pb")
         }
-    }
+}

@@ -37,8 +37,14 @@ android {
 }
 
 dependencies {
+    implementation(projects.feature.splash)
+    implementation(projects.feature.home)
 
-    implementation(projects.core.database)
+    implementation(projects.core.common)
+//    implementation(projects.core.ui)
+    implementation(projects.core.designsystem)
+    implementation(projects.core.data)
+    implementation(projects.core.model)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)
@@ -50,4 +56,18 @@ dependencies {
     implementation(libs.androidx.profileinstaller)
     implementation(libs.kotlinx.coroutines.guava)
     implementation(libs.coil.kt)
+
+    debugImplementation(libs.androidx.compose.ui.testManifest)
+
+    kspTest(libs.hilt.compiler)
+
+    testImplementation(projects.core.testing)
+    testImplementation(libs.accompanist.testharness)
+    testImplementation(libs.work.testing)
+
+    androidTestImplementation(projects.core.testing)
+    androidTestImplementation(projects.core.datastoreTest)
+    androidTestImplementation(libs.androidx.navigation.testing)
+    androidTestImplementation(libs.accompanist.testharness)
+    androidTestImplementation(libs.hilt.android.testing)
 }

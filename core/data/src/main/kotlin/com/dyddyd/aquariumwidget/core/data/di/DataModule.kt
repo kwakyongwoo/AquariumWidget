@@ -61,7 +61,7 @@ abstract class DataModule {
     ): UserRepository
 
     @Binds
-    internal abstract fun bindUserDataRepository(
+    internal abstract fun bindsUserDataRepository(
         userDataRepository: OfflineUserDataRepository,
     ): UserDataRepository
 }
