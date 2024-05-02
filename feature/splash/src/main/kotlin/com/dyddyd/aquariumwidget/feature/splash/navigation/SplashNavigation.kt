@@ -11,7 +11,7 @@ fun NavGraphBuilder.splashScreen(
     navigateToHome: () -> Unit
 ) {
     composable(
-        route = SPLASH_ROUTE
+        route = SPLASH_ROUTE,
     ) {
         SplashRoute(navigateToHome = navigateToHome)
     }

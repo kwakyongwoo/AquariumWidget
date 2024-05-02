@@ -8,6 +8,10 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.dyddyd.aquariumwidget.feature.home.navigation.HOME_ROUTE
+import com.dyddyd.aquariumwidget.feature.splash.navigation.SPLASH_ROUTE
+import com.dyddyd.aquariumwidget.navigation.TopLevelDestination.SPLASH
+import com.dyddyd.aquariumwidget.navigation.TopLevelDestination.HOME
 import com.dyddyd.aquariumwidget.navigation.TopLevelDestination
 import kotlinx.coroutines.CoroutineScope
 
@@ -37,7 +41,8 @@ class AquariumAppState(
 
     val currentTopLevelDestination: TopLevelDestination?
         @Composable get() = when (currentDestination?.route) {
-//            AQUARIUM_ROUTE -> AQUARIUM
+            SPLASH_ROUTE -> SPLASH
+            HOME_ROUTE -> HOME
             else -> null
         }
 
