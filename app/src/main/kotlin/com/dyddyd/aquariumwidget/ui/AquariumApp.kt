@@ -28,10 +28,11 @@ fun AquariumApp(
     Scaffold(
         modifier = Modifier,
     ) { padding ->
-        padding
-        Row(modifier = Modifier.fillMaxSize()) {
+        Row(
+            modifier = Modifier.fillMaxSize(),
+        ) {
             Box(
-                Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize(),
             ) {
                 val destination = appState.currentTopLevelDestination
                 if (destination != TopLevelDestination.SPLASH) {
