@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -33,6 +34,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.dyddyd.aquariumwidget.core.designsystem.component.ImageMaxSize
 import com.dyddyd.aquariumwidget.feature.splash.R
 
 
@@ -51,27 +53,23 @@ internal fun HomeRoute(
 fun HomeScreen(
     modifier: Modifier,
 ) {
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-            .background(Color(0xFFFFEBCD))
+    Column(
+        modifier = Modifier.fillMaxSize()
     ) {
-
-
-        HomeBottom(modifier = Modifier.align(Alignment.BottomCenter))
-    }
-}
-
-@Composable
-fun HomeContent(
-) {
-    CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
-        Column(
+        Image(
+            painter = painterResource(id = R.drawable.home_top_background),
+            contentDescription = "Home Top Background",
+            contentScale = ContentScale.FillWidth,
             modifier = Modifier
-                .fillMaxSize(),
-            verticalArrangement = Arrangement.Bottom,
+                .fillMaxWidth()
+        )
 
-            ) {
+        Column(
+            modifier = modifier
+                .fillMaxSize()
+                .background(Color(0xFFFFEBCD)),
+            verticalArrangement = Arrangement.Bottom
+        ) {
 
             Image(
                 painter = painterResource(id = R.drawable.home_game_button),
@@ -79,33 +77,12 @@ fun HomeContent(
                 contentScale = ContentScale.FillWidth,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 36.dp)
+                    .padding(horizontal = 48.dp)
             )
 
-            Box(
-                modifier = Modifier
-                    .fillMaxHeight(0.03f)
-            )
+            Spacer(modifier = Modifier.height(32.dp))
 
-            Image(
-                painter = painterResource(id = R.drawable.home_aquarium),
-                contentDescription = "Home Aquarium",
-                contentScale = ContentScale.FillWidth,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 32.dp)
-            )
-
-            Box(
-                modifier = Modifier
-                    .fillMaxHeight(0.13f)
-            ) {
-
-            }
-
-            HomeBottom(
-                modifier = Modifier
-            )
+            HomeBottom(modifier = Modifier)
         }
     }
 }
@@ -122,66 +99,68 @@ private fun HomeBottom(
             painter = painterResource(id = R.drawable.home_bottom_background),
             contentDescription = "Home Bottom Background",
             contentScale = ContentScale.FillWidth,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter)
         )
 
-        HomeBottomBar(modifier = Modifier.align(Alignment.BottomCenter))
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter),
+            verticalArrangement = Arrangement.Bottom
+        ) {
+
+            Image(
+                painter = painterResource(id = R.drawable.home_aquarium),
+                contentDescription = "Home Aquarium",
+                contentScale = ContentScale.FillWidth,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 32.dp)
+            )
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(5f)
+            )
+
+            HomeBottomBar()
+        }
     }
 }
 
 @Composable
-private fun HomeBottomBar(
-    modifier: Modifier,
-) {
+private fun HomeBottomBar() {
     Box(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxWidth()
+            .aspectRatio(3f)
     ) {
 
-        Image(
+        ImageMaxSize(
             painter = painterResource(id = R.drawable.home_bottom_bar),
             contentDescription = "Home Bottom Bar",
-            contentScale = ContentScale.FillWidth,
-            modifier = Modifier
-                .fillMaxWidth()
         )
 
         LazyRow(
             modifier = Modifier
                 .align(Alignment.Center)
                 .fillMaxWidth()
-                .padding(24.dp),
+                .padding(24.dp)
+                .padding(top = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-//            items(5) {
-//                Image(
-//                    painter = painterResource(id = R.drawable.home_bottom_bar_item),
-//                    contentDescription = "Home Bottom Bar Item",
-//                    contentScale = ContentScale.FillHeight,
-//                    modifier = Modifier
-//                        .fillMaxHeight()
-//                        .padding(8.dp)
-//                )
-//            }
+            items(5) {
+                Image(
+                    painter = painterResource(id = R.drawable.home_bottom_bar_item),
+                    contentDescription = "Home Bottom Bar Item",
+                    contentScale = ContentScale.FillHeight,
+                    modifier = Modifier
+                        .fillMaxHeight()
+                )
+            }
         }
-
-//        LazyRow(
-//            modifier = Modifier
-//                .align(Alignment.Center)
-//                .fillMaxWidth()
-////                .aspectRatio(3f)
-//                .padding(24.dp),
-//            horizontalArrangement = Arrangement.spacedBy(8.dp),
-//        ) {
-//            items(5) {
-//                Image(
-//                    painter = painterResource(id = R.drawable.home_bottom_bar_item),
-//                    contentDescription = "Home Bottom Bar Item",
-//                    contentScale = ContentScale.FillBounds,
-//                    modifier = Modifier
-//                        .fillMaxHeight()
-//                        .aspectRatio(1f)
-//                )
-//            }
-//        }
     }
 }

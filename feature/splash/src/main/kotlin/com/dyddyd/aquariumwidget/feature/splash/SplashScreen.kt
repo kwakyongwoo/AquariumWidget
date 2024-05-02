@@ -11,6 +11,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.dyddyd.aquariumwidget.core.designsystem.component.ImageMaxSize
 
 @Composable
 internal fun SplashRoute(
@@ -43,7 +44,7 @@ internal fun SplashScreen(
                 Image(
                     painter = painterResource(id = R.drawable.splash_background),
                     contentDescription = "Splash Screen",
-                    contentScale = ContentScale.Crop,
+                    contentScale = ContentScale.FillBounds,
                     modifier = Modifier.fillMaxSize(),
                 )
             }
