@@ -4,13 +4,12 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import com.dyddyd.aquariumwidget.core.database.dao.FishDao
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
 
-class FishDaoTest {
+class FishEntityDaoTest {
 
     private lateinit var fishDao: FishDao
     private lateinit var db: AquariumDatabase

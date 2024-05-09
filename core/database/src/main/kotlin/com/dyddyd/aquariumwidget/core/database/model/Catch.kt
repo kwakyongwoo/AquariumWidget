@@ -23,7 +23,7 @@ import androidx.room.PrimaryKey
             onUpdate = ForeignKey.NO_ACTION
         ),
         ForeignKey(
-            entity = Fish::class,
+            entity = FishEntity::class,
             parentColumns = ["fish_id"],
             childColumns = ["fish_id"],
             onDelete = ForeignKey.NO_ACTION,

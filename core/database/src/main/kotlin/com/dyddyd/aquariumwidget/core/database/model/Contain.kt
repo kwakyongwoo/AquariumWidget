@@ -3,7 +3,6 @@ package com.dyddyd.aquariumwidget.core.database.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "CONTAIN",
@@ -24,7 +23,7 @@ import androidx.room.PrimaryKey
             onUpdate = ForeignKey.NO_ACTION
         ),
         ForeignKey(
-            entity = Fish::class,
+            entity = FishEntity::class,
             parentColumns = ["fish_id"],
             childColumns = ["fish_id"],
             onDelete = ForeignKey.NO_ACTION,

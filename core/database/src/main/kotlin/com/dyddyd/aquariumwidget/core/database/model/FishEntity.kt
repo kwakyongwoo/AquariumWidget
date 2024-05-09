@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import com.dyddyd.aquariumwidget.core.model.data.Fish
 
 @Entity(
     tableName = "FISH",
@@ -17,7 +18,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class Fish(
+data class FishEntity(
     @PrimaryKey
     @ColumnInfo(name = "fish_id")
     val fishId: Int,
@@ -27,4 +28,13 @@ data class Fish(
     val imageUrl: String?,
     @ColumnInfo(name = "habitat_id")
     val habitatId: Int,
+)
+
+fun FishEntity.asExternalModel() = Fish(
+    fishId = fishId,
+    name = name,
+    description = description,
+    rarity = rarity,
+    imageUrl = imageUrl,
+    habitatId = habitatId,
 )

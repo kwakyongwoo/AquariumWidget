@@ -15,7 +15,7 @@ import com.dyddyd.aquariumwidget.core.database.model.Clear
 import com.dyddyd.aquariumwidget.core.database.model.CollectParts
 import com.dyddyd.aquariumwidget.core.database.model.CollectRod
 import com.dyddyd.aquariumwidget.core.database.model.Contain
-import com.dyddyd.aquariumwidget.core.database.model.Fish
+import com.dyddyd.aquariumwidget.core.database.model.FishEntity
 import com.dyddyd.aquariumwidget.core.database.model.Habitat
 import com.dyddyd.aquariumwidget.core.database.model.Match
 import com.dyddyd.aquariumwidget.core.database.model.Parts
@@ -31,7 +31,7 @@ import com.dyddyd.aquariumwidget.core.database.model.User
         CollectParts::class,
         CollectRod::class,
         Contain::class,
-        Fish::class,
+        FishEntity::class,
         Habitat::class,
         Match::class,
         Parts::class,

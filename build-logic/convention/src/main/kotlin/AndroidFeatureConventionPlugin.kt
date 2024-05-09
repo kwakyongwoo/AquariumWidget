@@ -1,8 +1,7 @@
-import com.android.build.gradle.LibraryExtension
+
 import com.dyddyd.aquariumwidget.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 
 class AndroidFeatureConventionPlugin : Plugin<Project> {
@@ -14,7 +13,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
-//                add("implementation", project(":core:ui"))
+                add("implementation", project(":core:ui"))
                 add("implementation", project(":core:designsystem"))
 
                 add("implementation", libs.findLibrary("androidx.hilt.navigation.compose").get())
