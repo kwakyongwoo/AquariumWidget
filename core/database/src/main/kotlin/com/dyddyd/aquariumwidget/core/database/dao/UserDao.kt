@@ -2,7 +2,7 @@ package com.dyddyd.aquariumwidget.core.database.dao
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.dyddyd.aquariumwidget.core.database.model.User
+import com.dyddyd.aquariumwidget.core.database.model.UserEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -12,7 +12,7 @@ interface UserDao {
     fun getUserId(): Flow<Int>
 
     @Query("SELECT * FROM USER WHERE user_id = :userId")
-    fun getUserInfo(userId: Int): Flow<User>
+    fun getUserInfo(userId: Int): Flow<UserEntity>
 
     @Query("UPDATE USER SET chance = chance - 1 WHERE user_id = :userId AND chance > 0;")
     suspend fun decreaseGameChanceCount(userId: Int)

@@ -4,19 +4,20 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import com.dyddyd.aquariumwidget.core.model.data.Quest
 
 @Entity(
     tableName = "QUEST",
     foreignKeys = [
         ForeignKey(
-            entity = Habitat::class,
+            entity = HabitatEntity::class,
             parentColumns = ["habitat_id"],
             childColumns = ["habitat_id"],
             onDelete = ForeignKey.NO_ACTION,
             onUpdate = ForeignKey.NO_ACTION
         ),
         ForeignKey(
-            entity = Parts::class,
+            entity = PartsEntity::class,
             parentColumns = ["parts_id"],
             childColumns = ["parts_id"],
             onDelete = ForeignKey.NO_ACTION,
@@ -24,7 +25,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class Quest(
+data class QuestEntity(
     @PrimaryKey
     @ColumnInfo(name = "quest_id")
     val questId: Int,
@@ -32,4 +33,10 @@ data class Quest(
     val habitatId: Int,
     @ColumnInfo(name = "parts_id")
     val partsId: Int,
+)
+
+fun QuestEntity.asExternalModel() = Quest(
+    questId = questId,
+    habitatId = habitatId,
+    partsId = partsId,
 )

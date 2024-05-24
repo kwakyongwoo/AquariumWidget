@@ -1,6 +1,6 @@
 package com.dyddyd.aquariumwidget.core.data.repository
 
-import com.dyddyd.aquariumwidget.core.database.model.Rod
+import com.dyddyd.aquariumwidget.core.model.data.Rod
 import kotlinx.coroutines.flow.Flow
 
 interface RodRepository {

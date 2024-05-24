@@ -1,8 +1,11 @@
 package com.dyddyd.aquariumwidget.core.data.repository
 
 import com.dyddyd.aquariumwidget.core.database.dao.RodDao
-import com.dyddyd.aquariumwidget.core.database.model.Rod
+import com.dyddyd.aquariumwidget.core.database.model.RodEntity
+import com.dyddyd.aquariumwidget.core.database.model.asExternalModel
+import com.dyddyd.aquariumwidget.core.model.data.Rod
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 internal class OfflineRodRepository @Inject constructor(
@@ -14,10 +17,13 @@ internal class OfflineRodRepository @Inject constructor(
 
     override fun getAllRods(): Flow<List<Rod>> =
         rodDao.getAllRods()
+            .map { it.map(RodEntity::asExternalModel) }
 
     override fun getAllCollectedRods(userId: Int): Flow<List<Rod>> =
         rodDao.getAllCollectedRods(userId)
+            .map { it.map(RodEntity::asExternalModel) }
 
     override fun getMatchedRod(habitatId: Int): Flow<Rod?> =
         rodDao.getMatchedRod(habitatId)
+            .map { it?.asExternalModel() }
 }

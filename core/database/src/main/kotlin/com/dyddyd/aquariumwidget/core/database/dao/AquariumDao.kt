@@ -2,7 +2,7 @@ package com.dyddyd.aquariumwidget.core.database.dao
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.dyddyd.aquariumwidget.core.database.model.Aquarium
+import com.dyddyd.aquariumwidget.core.database.model.AquariumEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -19,7 +19,7 @@ interface AquariumDao {
                     AND COLLECT_ROD.user_id = :userId)
         """
     )
-    fun getAllCollectedAquariums(userId: Int): Flow<List<Aquarium>>
+    fun getAllCollectedAquariums(userId: Int): Flow<List<AquariumEntity>>
 
     @Query(
         value = """
@@ -32,5 +32,5 @@ interface AquariumDao {
                     AND HABITAT.habitat_id = :habitatId)
         """
     )
-    fun getMatchedAquarium(habitatId: Int): Flow<Aquarium?>
+    fun getMatchedAquarium(habitatId: Int): Flow<AquariumEntity?>
 }

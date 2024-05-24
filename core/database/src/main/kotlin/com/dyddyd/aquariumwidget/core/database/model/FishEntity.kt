@@ -10,7 +10,7 @@ import com.dyddyd.aquariumwidget.core.model.data.Fish
     tableName = "FISH",
     foreignKeys = [
         ForeignKey(
-            entity = Habitat::class,
+            entity = HabitatEntity::class,
             parentColumns = ["habitat_id"],
             childColumns = ["habitat_id"],
             onDelete = ForeignKey.NO_ACTION,

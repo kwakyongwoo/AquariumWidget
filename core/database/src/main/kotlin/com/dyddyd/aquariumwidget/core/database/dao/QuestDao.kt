@@ -2,8 +2,8 @@ package com.dyddyd.aquariumwidget.core.database.dao
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.dyddyd.aquariumwidget.core.database.model.Parts
-import com.dyddyd.aquariumwidget.core.database.model.Quest
+import com.dyddyd.aquariumwidget.core.database.model.PartsEntity
+import com.dyddyd.aquariumwidget.core.database.model.QuestEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -13,10 +13,10 @@ interface QuestDao {
     suspend fun clearQuest(userId: Int, habitatId: Int, questId: Int)
 
     @Query("SELECT * FROM QUEST WHERE habitat_id = :habitatId")
-    fun getAllQuestsInTheHabitat(habitatId: Int): Flow<List<Quest>>
+    fun getAllQuestsInTheHabitat(habitatId: Int): Flow<List<QuestEntity>>
 
     @Query("SELECT * FROM QUEST INNER JOIN CLEAR ON QUEST.quest_id = CLEAR.quest_id WHERE QUEST.habitat_id = :habitatId AND CLEAR.user_id = :userId")
-    fun getAllClearedQuestsInTheHabitat(userId: Int, habitatId: Int): Flow<List<Quest>>
+    fun getAllClearedQuestsInTheHabitat(userId: Int, habitatId: Int): Flow<List<QuestEntity>>
 
     @Query("SELECT COUNT(*) FROM QUEST WHERE habitat_id = :habitatId")
     fun getTotalQuestNum(habitatId: Int): Flow<Int>
@@ -29,5 +29,5 @@ interface QuestDao {
 
 
     @Query("SELECT * FROM PARTS INNER JOIN QUEST ON QUEST.parts_id = PARTS.parts_id WHERE QUEST.quest_id = :questId")
-    fun getQuestReward(questId: Int): Flow<Parts?>
+    fun getQuestReward(questId: Int): Flow<PartsEntity?>
 }

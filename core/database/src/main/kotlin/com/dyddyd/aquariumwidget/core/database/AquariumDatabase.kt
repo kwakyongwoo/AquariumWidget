@@ -9,35 +9,35 @@ import com.dyddyd.aquariumwidget.core.database.dao.PartsDao
 import com.dyddyd.aquariumwidget.core.database.dao.QuestDao
 import com.dyddyd.aquariumwidget.core.database.dao.RodDao
 import com.dyddyd.aquariumwidget.core.database.dao.UserDao
-import com.dyddyd.aquariumwidget.core.database.model.Aquarium
+import com.dyddyd.aquariumwidget.core.database.model.AquariumEntity
 import com.dyddyd.aquariumwidget.core.database.model.Catch
 import com.dyddyd.aquariumwidget.core.database.model.Clear
 import com.dyddyd.aquariumwidget.core.database.model.CollectParts
 import com.dyddyd.aquariumwidget.core.database.model.CollectRod
 import com.dyddyd.aquariumwidget.core.database.model.Contain
 import com.dyddyd.aquariumwidget.core.database.model.FishEntity
-import com.dyddyd.aquariumwidget.core.database.model.Habitat
+import com.dyddyd.aquariumwidget.core.database.model.HabitatEntity
 import com.dyddyd.aquariumwidget.core.database.model.Match
-import com.dyddyd.aquariumwidget.core.database.model.Parts
-import com.dyddyd.aquariumwidget.core.database.model.Quest
-import com.dyddyd.aquariumwidget.core.database.model.Rod
-import com.dyddyd.aquariumwidget.core.database.model.User
+import com.dyddyd.aquariumwidget.core.database.model.PartsEntity
+import com.dyddyd.aquariumwidget.core.database.model.QuestEntity
+import com.dyddyd.aquariumwidget.core.database.model.RodEntity
+import com.dyddyd.aquariumwidget.core.database.model.UserEntity
 
 @Database(
     entities = [
-        Aquarium::class,
+        AquariumEntity::class,
         Catch::class,
         Clear::class,
         CollectParts::class,
         CollectRod::class,
         Contain::class,
         FishEntity::class,
-        Habitat::class,
+        HabitatEntity::class,
         Match::class,
-        Parts::class,
-        Quest::class,
-        Rod::class,
-        User::class,
+        PartsEntity::class,
+        QuestEntity::class,
+        RodEntity::class,
+        UserEntity::class,
     ],
     version = 1
 )

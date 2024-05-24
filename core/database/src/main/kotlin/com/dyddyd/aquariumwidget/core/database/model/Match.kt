@@ -3,28 +3,27 @@ package com.dyddyd.aquariumwidget.core.database.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "MATCH",
     primaryKeys = ["aquarium_id", "rod_id", "habitat_id"],
     foreignKeys = [
         ForeignKey(
-            entity = Aquarium::class,
+            entity = AquariumEntity::class,
             parentColumns = ["aquarium_id"],
             childColumns = ["aquarium_id"],
             onDelete = ForeignKey.NO_ACTION,
             onUpdate = ForeignKey.NO_ACTION
         ),
         ForeignKey(
-            entity = Rod::class,
+            entity = RodEntity::class,
             parentColumns = ["rod_id"],
             childColumns = ["rod_id"],
             onDelete = ForeignKey.NO_ACTION,
             onUpdate = ForeignKey.NO_ACTION
         ),
         ForeignKey(
-            entity = Habitat::class,
+            entity = HabitatEntity::class,
             parentColumns = ["habitat_id"],
             childColumns = ["habitat_id"],
             onDelete = ForeignKey.NO_ACTION,

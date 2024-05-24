@@ -2,7 +2,7 @@ package com.dyddyd.aquariumwidget.core.database.dao
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.dyddyd.aquariumwidget.core.database.model.Rod
+import com.dyddyd.aquariumwidget.core.database.model.RodEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -12,10 +12,10 @@ interface RodDao {
     suspend fun collectRod(userId: Int, rodId: Int)
 
     @Query("SELECT * FROM ROD")
-    fun getAllRods(): Flow<List<Rod>>
+    fun getAllRods(): Flow<List<RodEntity>>
 
     @Query("SELECT * FROM ROD INNER JOIN COLLECT_ROD ON ROD.rod_id = COLLECT_ROD.rod_id WHERE COLLECT_ROD.user_id = :userId")
-    fun getAllCollectedRods(userId: Int): Flow<List<Rod>>
+    fun getAllCollectedRods(userId: Int): Flow<List<RodEntity>>
 
     @Query(
         value = """
@@ -29,5 +29,5 @@ interface RodDao {
             )
         """
     )
-    fun getMatchedRod(habitatId: Int): Flow<Rod?>
+    fun getMatchedRod(habitatId: Int): Flow<RodEntity?>
 }

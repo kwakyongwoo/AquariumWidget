@@ -9,14 +9,14 @@ import androidx.room.PrimaryKey
     tableName = "CATCH",
     foreignKeys = [
         ForeignKey(
-            entity = User::class,
+            entity = UserEntity::class,
             parentColumns = ["user_id"],
             childColumns = ["user_id"],
             onDelete = ForeignKey.NO_ACTION,
             onUpdate = ForeignKey.NO_ACTION
         ),
         ForeignKey(
-            entity = Rod::class,
+            entity = RodEntity::class,
             parentColumns = ["rod_id"],
             childColumns = ["rod_id"],
             onDelete = ForeignKey.NO_ACTION,

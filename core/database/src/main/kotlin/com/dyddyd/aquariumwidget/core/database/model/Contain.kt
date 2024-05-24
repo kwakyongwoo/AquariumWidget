@@ -9,14 +9,14 @@ import androidx.room.ForeignKey
     primaryKeys = ["user_id", "aquarium_id", "fish_id"],
     foreignKeys = [
         ForeignKey(
-            entity = User::class,
+            entity = UserEntity::class,
             parentColumns = ["user_id"],
             childColumns = ["user_id"],
             onDelete = ForeignKey.NO_ACTION,
             onUpdate = ForeignKey.NO_ACTION
         ),
         ForeignKey(
-            entity = Aquarium::class,
+            entity = AquariumEntity::class,
             parentColumns = ["aquarium_id"],
             childColumns = ["aquarium_id"],
             onDelete = ForeignKey.NO_ACTION,

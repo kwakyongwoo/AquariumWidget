@@ -4,12 +4,13 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import com.dyddyd.aquariumwidget.core.model.data.Parts
 
 @Entity(
     tableName = "PARTS",
     foreignKeys = [
         ForeignKey(
-            entity = Rod::class,
+            entity = RodEntity::class,
             parentColumns = ["rod_id"],
             childColumns = ["rod_id"],
             onDelete = ForeignKey.NO_ACTION,
@@ -17,7 +18,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class Parts(
+data class PartsEntity(
     @PrimaryKey
     @ColumnInfo(name = "parts_id")
     val partsId: Int,
@@ -26,4 +27,12 @@ data class Parts(
     val imageUrl: String?,
     @ColumnInfo(name = "rod_id")
     val rodId: Int,
+)
+
+fun PartsEntity.asExternalModel() = Parts(
+    partsId = partsId,
+    name = name,
+    description = description,
+    imageUrl = imageUrl,
+    rodId = rodId
 )

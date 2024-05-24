@@ -1,14 +1,14 @@
 package com.dyddyd.aquariumwidget.core.data.testdoubles
 
 import com.dyddyd.aquariumwidget.core.database.dao.UserDao
-import com.dyddyd.aquariumwidget.core.database.model.User
+import com.dyddyd.aquariumwidget.core.database.model.UserEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 
 class TestUserDao: UserDao {
     override fun getUserId(): Flow<Int> = flowOf(1)
 
-    override fun getUserInfo(userId: Int): Flow<User> {
+    override fun getUserInfo(userId: Int): Flow<UserEntity> {
         TODO("Not yet implemented")
     }
 

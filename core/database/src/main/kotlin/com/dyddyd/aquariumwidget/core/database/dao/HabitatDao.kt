@@ -2,7 +2,7 @@ package com.dyddyd.aquariumwidget.core.database.dao
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.dyddyd.aquariumwidget.core.database.model.Habitat
+import com.dyddyd.aquariumwidget.core.database.model.HabitatEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -19,12 +19,12 @@ interface HabitatDao {
                     AND COLLECT_ROD.user_id = :userId)
         """
     )
-    fun getAllCollectedHabitats(userId: Int): Flow<List<Habitat>>
+    fun getAllCollectedHabitats(userId: Int): Flow<List<HabitatEntity>>
 
 
     @Query("SELECT * FROM HABITAT")
-    fun getAllHabitats(): Flow<List<Habitat>>
+    fun getAllHabitats(): Flow<List<HabitatEntity>>
 
     @Query("SELECT * FROM HABITAT WHERE habitat_id = :habitatId")
-    fun getHabitatInfo(habitatId: Int): Flow<Habitat>
+    fun getHabitatInfo(habitatId: Int): Flow<HabitatEntity>
 }

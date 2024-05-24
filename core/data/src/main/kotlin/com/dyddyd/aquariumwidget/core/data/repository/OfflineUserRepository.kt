@@ -1,10 +1,9 @@
 package com.dyddyd.aquariumwidget.core.data.repository
 
-import android.os.Build.VERSION_CODES.P
 import com.dyddyd.aquariumwidget.core.database.dao.UserDao
-import com.dyddyd.aquariumwidget.core.database.model.User
+import com.dyddyd.aquariumwidget.core.database.model.asExternalModel
+import com.dyddyd.aquariumwidget.core.model.data.User
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -16,6 +15,7 @@ internal class OfflineUserRepository @Inject constructor(
 
     override fun getUserInfo(userId: Int): Flow<User> =
         userDao.getUserInfo(userId)
+            .map { it.asExternalModel() }
 
     override suspend fun decreaseGameChanceCount(userId: Int) {
         userDao.decreaseGameChanceCount(userId)

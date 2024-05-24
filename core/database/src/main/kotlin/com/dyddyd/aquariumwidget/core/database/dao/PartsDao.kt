@@ -2,7 +2,7 @@ package com.dyddyd.aquariumwidget.core.database.dao
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.dyddyd.aquariumwidget.core.database.model.Parts
+import com.dyddyd.aquariumwidget.core.database.model.PartsEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -12,8 +12,8 @@ interface PartsDao {
     suspend fun collectParts(userId: Int, partsId: Int)
 
     @Query("SELECT * FROM PARTS")
-    fun getAllParts(): Flow<List<Parts>>
+    fun getAllParts(): Flow<List<PartsEntity>>
 
     @Query("SELECT * FROM PARTS INNER JOIN COLLECT_PARTS ON PARTS.parts_id = COLLECT_PARTS.parts_id WHERE COLLECT_PARTS.user_id = :userId")
-    fun getAllCollectedParts(userId: Int): Flow<List<Parts>>
+    fun getAllCollectedParts(userId: Int): Flow<List<PartsEntity>>
 }

@@ -13,7 +13,7 @@ import org.junit.rules.TemporaryFolder
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class OfflineUserRepositoryTest {
+class OfflineUserRepositoryTestEntity {
 
     private val testScope = TestScope(UnconfinedTestDispatcher())
 

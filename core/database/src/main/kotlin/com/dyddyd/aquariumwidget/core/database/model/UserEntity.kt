@@ -4,12 +4,13 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import com.dyddyd.aquariumwidget.core.model.data.User
 
 @Entity(
     tableName = "USER",
     foreignKeys = [
         ForeignKey(
-            entity = Aquarium::class,
+            entity = AquariumEntity::class,
             parentColumns = ["aquarium_id"],
             childColumns = ["selected_aquarium_theme_id"],
             onDelete = ForeignKey.NO_ACTION,
@@ -17,7 +18,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class User(
+data class UserEntity(
     @PrimaryKey
     @ColumnInfo(name = "user_id")
     val userId: Int,
@@ -28,4 +29,12 @@ data class User(
     val selectedAquariumThemeId: Int?,
     @ColumnInfo(name = "last_played_date")
     val lastPlayedDate: Int?,
+)
+
+fun UserEntity.asExternalModel() = User(
+    userId = userId,
+    chance = chance,
+    curHabitat = curHabitat,
+    selectedAquariumThemeId = selectedAquariumThemeId,
+    lastPlayedDate = lastPlayedDate,
 )

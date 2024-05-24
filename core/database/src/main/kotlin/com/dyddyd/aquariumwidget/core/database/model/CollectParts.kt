@@ -18,14 +18,14 @@ CREATE TABLE "COLLECT_PARTS" (
     primaryKeys = ["user_id", "parts_id"],
     foreignKeys = [
         ForeignKey(
-            entity = User::class,
+            entity = UserEntity::class,
             parentColumns = ["user_id"],
             childColumns = ["user_id"],
             onDelete = ForeignKey.NO_ACTION,
             onUpdate = ForeignKey.NO_ACTION
         ),
         ForeignKey(
-            entity = Parts::class,
+            entity = PartsEntity::class,
             parentColumns = ["parts_id"],
             childColumns = ["parts_id"],
             onDelete = ForeignKey.NO_ACTION,

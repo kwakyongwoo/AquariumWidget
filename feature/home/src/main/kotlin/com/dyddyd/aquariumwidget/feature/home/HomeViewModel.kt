@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.dyddyd.aquariumwidget.core.data.repository.AquariumRepository
 import com.dyddyd.aquariumwidget.core.data.repository.FishRepository
 import com.dyddyd.aquariumwidget.core.data.repository.UserRepository
-import com.dyddyd.aquariumwidget.core.database.model.User
+import com.dyddyd.aquariumwidget.core.model.data.User
 import com.dyddyd.aquariumwidget.core.ui.FishUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow

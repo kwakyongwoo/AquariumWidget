@@ -1,6 +1,6 @@
 package com.dyddyd.aquariumwidget.core.data.repository
 
-import com.dyddyd.aquariumwidget.core.database.model.User
+import com.dyddyd.aquariumwidget.core.model.data.User
 import kotlinx.coroutines.flow.Flow
 
 // Room User Table Repository, not datastore

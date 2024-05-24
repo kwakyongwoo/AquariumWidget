@@ -1,7 +1,7 @@
 package com.dyddyd.aquariumwidget.core.data.repository
 
-import com.dyddyd.aquariumwidget.core.database.model.Parts
-import com.dyddyd.aquariumwidget.core.database.model.Quest
+import com.dyddyd.aquariumwidget.core.model.data.Parts
+import com.dyddyd.aquariumwidget.core.model.data.Quest
 import kotlinx.coroutines.flow.Flow
 
 interface QuestRepository {
