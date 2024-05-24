@@ -6,12 +6,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.dyddyd.aquariumwidget.core.designsystem.component.ImageMaxSize
 
 @Composable
 internal fun SplashRoute(
@@ -35,25 +33,18 @@ internal fun SplashScreen(
     navigateToHome: () -> Unit,
 ) {
 
-    when (splashUiState) {
-        SplashUiState.Loading -> {
-            Box(
-                modifier = modifier
-                    .fillMaxSize()
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.splash_background),
-                    contentDescription = "Splash Screen",
-                    contentScale = ContentScale.FillBounds,
-                    modifier = Modifier.fillMaxSize(),
-                )
-            }
-        }
-        SplashUiState.Success -> {
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.splash_background),
+            contentDescription = "Splash Screen",
+            contentScale = ContentScale.FillBounds,
+            modifier = Modifier.fillMaxSize(),
+        )
+        if (splashUiState == SplashUiState.Success) {
             navigateToHome()
-        }
-        SplashUiState.LoadFailed -> {
-
         }
     }
 
