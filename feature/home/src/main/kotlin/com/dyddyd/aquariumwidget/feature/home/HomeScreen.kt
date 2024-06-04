@@ -2,6 +2,7 @@ package com.dyddyd.aquariumwidget.feature.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,13 +19,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.dyddyd.aquariumwidget.core.designsystem.component.ImageMaxSize
-import com.dyddyd.aquariumwidget.core.designsystem.theme.AquariumWidgetTheme
 import com.dyddyd.aquariumwidget.core.ui.FishUiState
 import com.dyddyd.aquariumwidget.core.ui.fishList
 import com.dyddyd.aquariumwidget.feature.splash.R
@@ -32,6 +32,7 @@ import com.dyddyd.aquariumwidget.feature.splash.R
 
 @Composable
 internal fun HomeRoute(
+    onGoFishingClick: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
@@ -40,6 +41,7 @@ internal fun HomeRoute(
     HomeScreen(
         fishUiState = fishUiState,
         modifier = modifier,
+        onGoFishingClick = onGoFishingClick
     )
 }
 
@@ -48,7 +50,10 @@ internal fun HomeRoute(
 fun HomeScreen(
     fishUiState: FishUiState,
     modifier: Modifier,
+    onGoFishingClick: () -> Unit,
 ) {
+    val context = LocalContext.current
+
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -73,6 +78,9 @@ fun HomeScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 48.dp)
+                    .clickable {
+                        onGoFishingClick()
+                    }
             )
 
             Spacer(modifier = Modifier.fillMaxHeight(0.1f))
@@ -155,18 +163,21 @@ private fun HomeBottomBar(
                 .padding(top = 8.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-           fishList(fishUiState = fishUiState)
+           fishList(
+               fishUiState = fishUiState,
+               modifier = Modifier.fillMaxHeight()
+           )
         }
     }
 }
 
-@Preview
-@Composable
-private fun HomeScreenPreview() {
-    AquariumWidgetTheme {
-        HomeScreen(
-            fishUiState = FishUiState.Loading,
-            modifier = Modifier,
-        )
-    }
-}
+//@Preview
+//@Composable
+//private fun HomeScreenPreview() {
+//    AquariumWidgetTheme {
+//        HomeScreen(
+//            fishUiState = FishUiState.Loading,
+//            modifier = Modifier,
+//        )
+//    }
+//}

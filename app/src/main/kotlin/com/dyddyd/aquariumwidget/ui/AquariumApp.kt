@@ -41,10 +41,10 @@ fun AquariumApp(
                             .zIndex(1f)
                     ) {
                         if (destination == TopLevelDestination.HOME) {
-                            Box(
+                            Spacer(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .aspectRatio(90 / 16f)
+                                    .aspectRatio(90 / 16f) // Home Top Background aspect ratio
                             )
                         }
 

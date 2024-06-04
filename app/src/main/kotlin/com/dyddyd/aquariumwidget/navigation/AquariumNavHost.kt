@@ -1,7 +1,5 @@
 package com.dyddyd.aquariumwidget.navigation
 
-import androidx.compose.animation.EnterTransition
-import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
@@ -10,6 +8,7 @@ import com.dyddyd.aquariumwidget.feature.home.navigation.navigateToHome
 import com.dyddyd.aquariumwidget.feature.splash.navigation.SPLASH_ROUTE
 import com.dyddyd.aquariumwidget.feature.splash.navigation.splashScreen
 import com.dyddyd.aquariumwidget.ui.AquariumAppState
+import com.dydyd.aquariumwidget.feature.fishing.navigation.navigateToFishing
 
 @Composable
 fun AquariumNavHost(
@@ -25,6 +24,6 @@ fun AquariumNavHost(
         modifier = modifier,
     ) {
         splashScreen(navController::navigateToHome)
-        homeScreen()
+        homeScreen(navController::navigateToFishing)
     }
 }

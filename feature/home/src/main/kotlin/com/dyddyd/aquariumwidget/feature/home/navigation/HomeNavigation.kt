@@ -18,8 +18,10 @@ fun NavController.navigateToHome() = navigate(HOME_ROUTE, navOptions {
     }
 })
 
-fun NavGraphBuilder.homeScreen() {
+fun NavGraphBuilder.homeScreen(
+    onGoFishingClick: () -> Unit,
+) {
     composable(route = HOME_ROUTE) {
-        HomeRoute()
+        HomeRoute(onGoFishingClick = onGoFishingClick)
     }
 }

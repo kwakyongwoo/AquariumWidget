@@ -2,6 +2,7 @@ package com.dyddyd.aquariumwidget.core.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -18,12 +19,13 @@ import com.dyddyd.aquariumwidget.core.model.data.Fish
 
 fun LazyListScope.fishList(
     fishUiState: FishUiState,
+    modifier: Modifier = Modifier
 ) {
     when (fishUiState) {
         is FishUiState.Success -> {
             items(fishUiState.fishList.size) { index ->
                 val fish = fishUiState.fishList[index]
-                FishItem(fish = fish)
+                FishItem(fish = fish, modifier = modifier)
             }
         }
 
@@ -45,20 +47,21 @@ fun FishItem(
     fish: Fish,
     modifier: Modifier = Modifier
 ) {
-    Box(modifier = modifier) {
+    Box(modifier = modifier.fillMaxSize().aspectRatio(1f)) {
         Image(
             painter = painterResource(id = R.drawable.core_ui_fish_background_default),
             contentDescription = "Fish Background",
-            modifier = Modifier
+            modifier = modifier
                 .align(Alignment.Center)
                 .fillMaxSize()
         )
 
         FishImage(
             imageUrl = fish.imageUrl ?:"fish_default_image",
-            modifier = Modifier
+            modifier = modifier
+                .fillMaxSize()
                 .align(Alignment.Center)
-                .padding(16.dp),
+                .padding(12.dp),
         )
     }
 }
