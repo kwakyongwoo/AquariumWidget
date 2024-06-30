@@ -17,7 +17,7 @@ interface UserDao {
     @Query("UPDATE USER SET chance = chance - 1 WHERE user_id = :userId AND chance > 0;")
     suspend fun decreaseGameChanceCount(userId: Int)
 
-    @Query("UPDATE USER SET chance = 3 WHERE user_id = :userId")
+    @Query("UPDATE USER SET chance = 5 WHERE user_id = :userId")
     suspend fun resetGameChanceCount(userId: Int)
 
     @Query("UPDATE USER SET selected_aquarium_theme_id = :aquariumId WHERE user_id = :userId")

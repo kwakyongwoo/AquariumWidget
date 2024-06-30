@@ -4,5 +4,6 @@ enum class TopLevelDestination(
 
 ) {
     SPLASH,
-    HOME
+    HOME,
+    FISHING
 }

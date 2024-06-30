@@ -33,9 +33,9 @@ internal class OfflineUserRepository @Inject constructor(
         userDao.getMaxHabitat().map { maxHabitatId ->
             if (habitatId < maxHabitatId) {
                 userDao.clearCurrentHabitat(userId, habitatId)
-                true
+                return@map true
             }
-            false
+            return@map false
         }
 
     override suspend fun updateLastPlayedDate(curDate: Int, userId: Int) {

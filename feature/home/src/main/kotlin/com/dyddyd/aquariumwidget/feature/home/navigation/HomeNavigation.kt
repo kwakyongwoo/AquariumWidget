@@ -1,5 +1,7 @@
 package com.dyddyd.aquariumwidget.feature.home.navigation
 
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideOutHorizontally
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -10,18 +12,20 @@ const val HOME_ROUTE = "home_route"
 
 fun NavController.navigateToHome() = navigate(HOME_ROUTE, navOptions {
     launchSingleTop = true
-    anim {
-        enter = 0
-        exit = 0
-        popEnter = 0
-        popExit = 0
-    }
 })
 
 fun NavGraphBuilder.homeScreen(
     onGoFishingClick: () -> Unit,
 ) {
-    composable(route = HOME_ROUTE) {
+    composable(
+        route = HOME_ROUTE,
+        exitTransition = {
+            slideOutHorizontally(
+                targetOffsetX = { 1000 },
+                animationSpec = tween(400)
+            )
+        }
+    ) {
         HomeRoute(onGoFishingClick = onGoFishingClick)
     }
 }
